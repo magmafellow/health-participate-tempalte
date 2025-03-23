@@ -6,6 +6,18 @@
 @theme {
   --color-hm_accent: #F9355F;
   --color-hm_accentB: #FF6485;
+  
+  --color-gray: #565656;
+  --color-grayB: #6B6B6B;
+  --color-grayC: #2C2C2C;
+  --color-black: #111111;
+  --color-blackB: #0A0A0A;
+  --color-white: #FFFFFF;
+  --color-whiteB: #E8E8E8;
+  --color-blue: #39A6FF;
+  --color-green: #4AC983;
+  --color-red: #FF5053;
+  
 }
 
 @theme inline {

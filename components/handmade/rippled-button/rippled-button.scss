@@ -1,0 +1,44 @@
+.rippled-button {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 38px;
+  border-radius: 8px;
+  background-color: rgb(68, 68, 68);
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(75, 75, 75);
+  }
+}
+
+.rippled-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.ripple {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.292);
+
+  position: absolute;
+  animation-name: rippledAnim;
+  animation-duration: 900ms;
+  transform: scale(0);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rippledAnim {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
