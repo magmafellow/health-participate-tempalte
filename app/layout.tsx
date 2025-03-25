@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`dark p-24 dark:bg-[#1A1918] ${quickSand.variable} antialiased`}
+        className={`dark dark:bg-[#1A1918] ${quickSand.variable} antialiased`}
       >
         {children}
       </body>

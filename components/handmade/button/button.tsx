@@ -5,7 +5,7 @@ import React, { ReactNode } from 'react'
 import styles from './button.module.scss'
 
 const buttonVariants = cva(
-  `${styles.button}  inline-flex duration-1000 font-semibold outline-transparent`,
+  `${styles.button} inline-flex justify-center items-center duration-1000 font-semibold outline-transparent`,
   {
     variants: {
       semantic: {
