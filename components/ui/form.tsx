@@ -107,8 +107,6 @@ function FormLabel({
 function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
-  console.log('error', error)
-
   let errObject = {}
   if (error?.message) {
     Reflect.set(errObject, 'data-errored', 'true')
