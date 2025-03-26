@@ -23,5 +23,5 @@ export async function getUserFromDb(username: string, password: string): Promise
 
 
 export async function credentialsAction (formData: FormData) {
-  signIn('credentials', formData)
+  await signIn('credentials', formData)
 }

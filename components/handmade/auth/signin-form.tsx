@@ -16,15 +16,11 @@ const formSchema = z.object({
 })
 
 const SigninForm = () => {
-
-
-
   return (
     <form
       className={`p-6 border max-w-[382px] dark:border-gray rounded-[var(--form-radius)]`}
       action={credentialsAction}
     >
-      
       <Heading order={4} className="mb-1.5">
         Signin
       </Heading>
@@ -38,7 +34,7 @@ const SigninForm = () => {
           >
             Username
           </Heading>
-          <Input placeholder="Your username..." />
+          <Input name="username" placeholder="Your username..." />
         </div>
 
         <div className="flex flex-col">
@@ -49,7 +45,7 @@ const SigninForm = () => {
           >
             Password
           </Heading>
-          <Input placeholder="Your secure password..." />
+          <Input name="password" placeholder="Your secure password..." />
         </div>
 
         <Button semantic="secondary" type="submit">

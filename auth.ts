@@ -20,12 +20,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           user = await getUserFromDb(username, password)
 
+          console.log('user: ', user)
+
           if (!user) {
             throw new Error('Invalid credentials.')
           }
 
           return user
         } catch (error) {
+          console.log('error OCCURED, ', error)
+
           if (error instanceof ZodError) {
             return null
           }
@@ -34,4 +38,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      console.log('user in jwt', user)
+      if (user) {
+        // User is available during sign-in
+        token.id = user.id
+        token.username = user.username
+      }
+      return token
+    },
+    session({ session, token }) {
+      session.user.id = token.id
+      session.user.username = token.username
+      return session
+    },
+  },
 })

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Quicksand } from "next/font/google";
 import "./globals.css";
+import DevNav from "@/components/handmade/dev-nav/dev-nav";
+import DevNavDialog from "@/components/handmade/dev-nav/dev-nav-dialog";
 
 const quickSand = Quicksand({
   weight: ['300', '400', '500', '600', '700'],
@@ -34,6 +36,9 @@ export default function RootLayout({
         className={`dark dark:bg-[#1A1918] ${quickSand.variable} antialiased`}
       >
         {children}
+
+        <DevNav />  
+        <DevNavDialog />
       </body>
     </html>
   );
