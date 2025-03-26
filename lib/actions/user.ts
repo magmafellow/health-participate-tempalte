@@ -6,7 +6,10 @@ import { usersTable } from '@/schema'
 import { User } from '@/types/user'
 import { and, eq } from 'drizzle-orm'
 
-export async function getUserFromDb(username: string, password: string): Promise<null | User> {
+export async function getUserFromDb(
+  username: string,
+  password: string
+): Promise<null | User> {
   const r = await db
     .select()
     .from(usersTable)
@@ -16,12 +19,14 @@ export async function getUserFromDb(username: string, password: string): Promise
 
   if (r.length === 0) {
     return null
-  } 
+  }
 
   return r[0]
 }
 
-
-export async function credentialsAction (formData: FormData) {
-  await signIn('credentials', formData)
+export async function credentialsAction(formData: FormData) {
+  await signIn('credentials', {
+    ...Object.fromEntries(formData.entries()),
+    redirectTo: '/auth_profile',
+  })
 }

@@ -1,7 +1,9 @@
 .rippled-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 24px 38px;
   border-radius: 8px;
   background-color: rgb(68, 68, 68);
   color: #fff;
@@ -9,6 +11,13 @@
 
   &:hover {
     background-color: rgb(75, 75, 75);
+  }
+
+  &_inner {
+    padding: 24px 38px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

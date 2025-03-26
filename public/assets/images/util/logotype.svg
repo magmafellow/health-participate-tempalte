@@ -1,0 +1,21 @@
+<svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="47" height="47" rx="23.5" fill="url(#paint0_linear_40_52)"/>
+<rect x="14.8051" y="3.525" width="30.08" height="30.08" rx="15.04" fill="url(#paint1_linear_40_52)"/>
+<rect x="14.8051" y="3.525" width="30.08" height="30.08" rx="15.04" stroke="white" stroke-width="0.47"/>
+<rect x="0.567586" y="20.7776" width="12.4948" height="12.4948" rx="6.24738" fill="url(#paint2_linear_40_52)"/>
+<rect x="0.567586" y="20.7776" width="12.4948" height="12.4948" rx="6.24738" stroke="white" stroke-width="0.195231"/>
+<defs>
+<linearGradient id="paint0_linear_40_52" x1="4.23" y1="39.245" x2="40.89" y2="7.05" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A5C0D6"/>
+<stop offset="1" stop-color="#485168"/>
+</linearGradient>
+<linearGradient id="paint1_linear_40_52" x1="17.3196" y1="28.7993" x2="41.1486" y2="7.8725" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4EAFFF"/>
+<stop offset="1" stop-color="#0E296F"/>
+</linearGradient>
+<linearGradient id="paint2_linear_40_52" x1="1.61207" y1="31.2762" x2="11.5103" y2="22.5835" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4EAFFF"/>
+<stop offset="1" stop-color="#0E296F"/>
+</linearGradient>
+</defs>
+</svg>

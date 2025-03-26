@@ -9,20 +9,28 @@ import { useForm } from 'react-hook-form'
 import Button from '../button/button'
 import { signIn } from '@/auth'
 import { credentialsAction } from '@/lib/actions/user'
+import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
   username: z.string().min(2).max(12),
   password: z.string().min(3).max(24),
 })
 
-const SigninForm = () => {
+type Props = {
+  className?: string
+}
+
+const SigninForm = ({ className }: Props) => {
   return (
     <form
-      className={`p-6 border max-w-[382px] dark:border-gray rounded-[var(--form-radius)]`}
+      className={cn(
+        `p-6 border w-[382px] max-w-full dark:border-gray rounded-[var(--form-radius)]`,
+        className
+      )}
       action={credentialsAction}
     >
       <Heading order={4} className="mb-1.5">
-        Signin
+        Login
       </Heading>
       <Text className="mb-6">Come in your account</Text>
       <div className="flex flex-col gap-6">

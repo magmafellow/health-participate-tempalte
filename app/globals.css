@@ -20,10 +20,16 @@
   --color-green: #4AC983;
   --color-red: #FF5053;
 
+  /* 1 indicates isTest===true */
+  --color-hm_test: rgba(255, 255, 255, 1);
+
   /* sizes */
   --form-radius: 12px;
   --input-radius-m: 6px;
   
+  /* containers */
+  --breakpoint-lgB: 67.5rem;
+  --breakpoint-xs: 23rem;
 }
 
 @theme inline {
@@ -148,4 +154,15 @@
     @apply bg-background text-foreground;
     font-family: var(--font-quicksand, 'sans-serif');
   }
+}
+
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
 }

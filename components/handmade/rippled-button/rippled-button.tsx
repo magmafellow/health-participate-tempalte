@@ -6,7 +6,7 @@ import './rippled-button.scss'
 
 type ComponentProps = {
   children: ReactNode
-}
+} & React.ComponentProps<'button'>
 
 type Ripple = {
   id: number
@@ -15,7 +15,7 @@ type Ripple = {
   y: number
 }
 
-const RippledButton = ({ children }: ComponentProps) => {
+const RippledButton = ({ children, ...props }: ComponentProps) => {
   const [ripples, setRipples] = useState<Ripple[]>([])
 
   function createRipple(event: MouseEvent) {
@@ -23,45 +23,42 @@ const RippledButton = ({ children }: ComponentProps) => {
     const rect = target.getBoundingClientRect()
 
     const size = Math.max(rect.height, rect.width)
-    
+
     const newRipple: Ripple = {
       id: Date.now(),
       size: size,
-      x: event.clientX - rect.left - size/2,
-      y: event.clientY - rect.top - size/2,
+      x: event.clientX - rect.left - size / 2,
+      y: event.clientY - rect.top - size / 2,
     }
-
-    console.log('event.clientX', event.clientX)
-    console.log('rect.left', rect.left)
-
-    console.log('height', rect.height)
 
     setRipples([...ripples, newRipple])
 
     setTimeout(() => {
-      setRipples((prevRipples) => prevRipples.filter((r) => r.id !== newRipple.id))
+      setRipples(prevRipples => prevRipples.filter(r => r.id !== newRipple.id))
     }, 900)
   }
 
   return (
-    <button className="rippled-button" onClick={createRipple} onDoubleClick={() => alert('dbclicked!')}>
-      {children}
-      <div className="rippled-container">
-        {ripples.map(ripple => (
-          <span
-            key={ripple.id}
-            className="ripple"
-            data-ewr={ripple.id}
-            style={{
-              left: ripple.x,
-              top: ripple.y,
-              width: ripple.size,
-              height: ripple.size,
-            }}
-          ></span>
-        ))}
-      </div>
-    </button>
+    <div className="rippled-button" onClick={createRipple}>
+      <button className="rippled-button_inner" {...props}>
+        <div>{children}</div>
+        <div className="rippled-container">
+          {ripples.map(ripple => (
+            <span
+              key={ripple.id}
+              className="ripple"
+              data-ewr={ripple.id}
+              style={{
+                left: ripple.x,
+                top: ripple.y,
+                width: ripple.size,
+                height: ripple.size,
+              }}
+            ></span>
+          ))}
+        </div>
+      </button>
+    </div>
   )
 }
 
