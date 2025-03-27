@@ -15,6 +15,7 @@ import {
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
+import { ubuntu } from '@/font/font'
 
 const Form = FormProvider
 
@@ -97,7 +98,7 @@ function FormLabel({
     <Label
       data-slot="form-label"
       data-error={!!error}
-      className={cn('data-[error=true]:text-destructive', className)}
+      className={cn(`data-[error=true]:text-destructive font-medium text-sm dark:text-whiteC ${ubuntu.className}`, className)}
       htmlFor={formItemId}
       {...props}
     />

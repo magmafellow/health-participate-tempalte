@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html className='dark' lang="en">
       <body
-        className={`dark dark:bg-[#1A1918] ${quickSand.variable} antialiased`}
+        className={`dark:bg-hm_surface ${quickSand.variable} antialiased`}
       >
         <Provider>
           {children}
