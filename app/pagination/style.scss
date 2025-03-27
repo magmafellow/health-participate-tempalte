@@ -1,0 +1,23 @@
+.pagination-container {
+  display: flex;
+  gap: 0.5rem;
+
+  & > li {
+    &.selected {
+      a {
+        background-color: rgba(65, 125, 255, 0.756);
+      }
+    }
+
+    a {
+      border: 1px solid gray;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.204);
+      }
+    }
+  }
+}

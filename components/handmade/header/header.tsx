@@ -7,6 +7,7 @@ import React from 'react'
 import Button from '@/components/handmade/button/button'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import { capitalizeFirstLetter } from '@/lib/util'
 
 const Header = () => {
   return (
@@ -88,7 +89,7 @@ const NavList = () => {
               } text-sm dark:text-blue/75 dark:hover:text-blue/90`}
               href={el.url}
             >
-              {el.name}
+              {capitalizeFirstLetter(el.name)}
             </Link>
           </li>
         ))}

@@ -20,8 +20,8 @@
   --color-green: #4AC983;
   --color-red: #FF5053;
 
-  /* 1 indicates isTest===true */
-  --color-hm_test: rgba(255, 255, 255, 1);
+  /* 1 indicates isTest===true; 0 -> false */
+  --color-hm_test: rgba(255, 255, 255, 0);
 
   /* sizes */
   --form-radius: 12px;
