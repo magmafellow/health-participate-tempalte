@@ -52,38 +52,41 @@ type TMain = {
 
 function Main({ itemsPerPage }: TMain) {
   const [currPage, setCurrPage] = useState(0)
+  const [stateItems, setStateItems] = useState<string[]>(
+    items.slice(0, itemsPerPage)
+  )
   const [limit, setLimit] = useState(0)
-
-  // const endOffset = itemOffset + itemsPerPage + limit
-  const endOffset = currPage + itemsPerPage + limit
-
-  console.log(`Loading items from ${currPage} to ${endOffset}`)
-  const currentItems = items.slice(currPage, endOffset)
   const pageCount = Math.ceil(items.length / itemsPerPage)
 
   function handleClick(event: any) {
-    setLimit(0)
-    const newOffset = (event.selected * itemsPerPage) % items.length
-    console.log({
-      selected: event.selected,
-      itemsPerPage,
-      itemsLength: items.length,
-    })
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
-    setItemOffset(newOffset)
+    const nextPage = event.selected
+    const nextItemsStart = nextPage * itemsPerPage
+    const nextItemsEnd = nextItemsStart + itemsPerPage
+
+    setStateItems(items.slice(nextItemsStart, nextItemsEnd))
+    setCurrPage(event.selected)
   }
 
-  function addLimitHandler() {
-    setLimit(prev => prev + 3)
+  function handleLimit(event: any) {
+    if (currPage === pageCount) {
+      alert('you are in limit')
+      return
+    }
+    
+    setCurrPage(currPage + 1)
+
+    setStateItems(prev => {
+      const nextItemsStart = (currPage + 1) * itemsPerPage
+      const nextItemsEnd = nextItemsStart + itemsPerPage
+      return [...prev, ...items.slice(nextItemsStart, nextItemsEnd)]
+    })
   }
 
   return (
     <>
-      <Items currentItems={currentItems} />
+      <Items currentItems={stateItems} />
       <div className="flex justify-center mb-5">
-        <Button semantic="secondary" size="s" onClick={addLimitHandler}>
+        <Button semantic="secondary" size="s" onClick={handleLimit}>
           show more
         </Button>
       </div>
