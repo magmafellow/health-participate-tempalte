@@ -28,8 +28,14 @@ const inputVariants = cva(
   }
 )
 
-function Input({ className, type, _size='m', ...props }: ComponentProps) {
-  return <input type={type} className={cn(inputVariants({ _size }))} { ...props } />
+function Input({ className, type, _size = 'm', ...props }: ComponentProps) {
+  return (
+    <input
+      type={type}
+      className={cn(inputVariants({ _size }), className)}
+      {...props}
+    />
+  )
 }
 
 export default Input
