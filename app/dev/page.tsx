@@ -1,4 +1,5 @@
 import SigninForm from '@/components/handmade/auth/signin-form'
+import SignupForm from '@/components/handmade/auth/signup-form'
 import TestForm from '@/components/handmade/auth/test-form'
 import Footer from '@/components/handmade/footer/footer'
 import Header from '@/components/handmade/header/header'
@@ -11,8 +12,9 @@ const Page = () => {
     <div className='wrapper'>
       <Header />
 
-      <ResponsiveContainer className='main content-center'>
-        <SigninForm className='mx-auto' />
+      <ResponsiveContainer className='main '>
+        {/* <SigninForm className='mx-auto' /> */}
+        <SignupForm className='mx-auto' />
       </ResponsiveContainer>
 
       <Footer />

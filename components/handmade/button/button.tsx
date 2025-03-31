@@ -23,7 +23,9 @@ const buttonVariants = cva(
               dark:focus-visible:!outline-gray dark:focus-visible:border-transparent dark:focus-visible`,
       },
       size: {
-        m: 'py-3.5 px-5 rounded-[5px] text-sm outline-offset-[3px] outline-2',
+        // lg: TODO
+        lg: 'py-3.5 px-5 rounded-[5px] text-sm outline-offset-[3px] outline-2',
+        m: 'py-[9px] px-4 rounded-[5px] text-sm outline-offset-[2px] outline-2',
         s: 'py-2 px-3 rounded-[3px] text-xs outline-offset-[2px] outline-1',
       },
     },

@@ -8,7 +8,7 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import Button from '../button/button'
 import { signIn } from '@/auth'
-import { credentialsAction } from '@/lib/actions/user'
+import { credentialsActionSignIn } from '@/lib/actions/user'
 import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
@@ -27,7 +27,7 @@ const SigninForm = ({ className }: Props) => {
         `p-6 border w-[382px] max-w-full dark:border-gray rounded-[var(--form-radius)]`,
         className
       )}
-      action={credentialsAction}
+      action={credentialsActionSignIn}
     >
       <Heading order={4} className="mb-1.5">
         Login
@@ -56,7 +56,7 @@ const SigninForm = ({ className }: Props) => {
           <Input name="password" placeholder="Your secure password..." />
         </div>
 
-        <Button semantic="secondary" type="submit">
+        <Button semantic="neutral" type="submit">
           submit
         </Button>
       </div>

@@ -25,7 +25,7 @@ const Header = () => {
             <BurgerMenuButton className="lg:hidden" />
             <Button
               className="hidden lg:inline-flex"
-              semantic={'secondary'}
+              semantic={'neutral'}
               mode={'ghost'}
             >
               Book a call to us
@@ -64,17 +64,22 @@ const NavList = () => {
       name: 'about',
       url: '/about',
     },
-    {
-      name: 'login',
-      url: '/login',
-    },
+
     {
       name: 'signup',
       url: '/signup',
     },
     {
+      name: 'login',
+      url: '/login',
+    },
+    {
       name: 'scroll',
       url: '/scroll',
+    },
+    {
+      name: 'profile',
+      url: '/auth_profile',
     },
   ]
 

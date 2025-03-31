@@ -12,6 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       authorize: async credentials => {
+        console.log('authorize credentials', credentials)
         try {
           let user = null
           const { username, password } = await signInSchema.parseAsync(

@@ -6,15 +6,15 @@ const Page = () => {
   return (
     <div className='flex flex-col gap-12 items-start'>
       <Button>HandMade</Button>
-      <Button semantic='secondary'>GrayMode</Button>
-      <Button semantic='primary' mode='ghost'>GrayMode</Button>
-      <Button semantic='primary' mode='outline'>GrayMode</Button>
+      <Button semantic='neutral'>GrayMode</Button>
+      <Button semantic='accent' mode='ghost'>GrayMode</Button>
+      <Button semantic='accent' mode='outline'>GrayMode</Button>
 
       <hr />
       <Button size='s'>HandMade</Button>
-      <Button semantic='secondary' size='s'>GrayMode</Button>
-      <Button semantic='primary' mode='ghost' size='s'>GrayMode</Button>
-      <Button semantic='primary' mode='outline' size='s'>GrayMode</Button>
+      <Button semantic='neutral' size='s'>GrayMode</Button>
+      <Button semantic='accent' mode='ghost' size='s'>GrayMode</Button>
+      <Button semantic='accent' mode='outline' size='s'>GrayMode</Button>
     </div>
   )
 }
