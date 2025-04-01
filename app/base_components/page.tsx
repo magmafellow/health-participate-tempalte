@@ -6,6 +6,8 @@ import React from 'react'
 import './style.scss'
 import Input from '@/components/handmade/input/input'
 import Heading from '@/components/handmade/typography/headings'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { SelectGroup } from '@/components/ui/select-base'
 
 const Page = () => {
   return (
@@ -60,6 +62,26 @@ const Page = () => {
         <div className="data-row flex gap-1">
           <Input placeholder="The nature travellin..." className="w-[400px]" />
           <Button semantic='accent' mode='ghost'>Search</Button>
+        </div>
+      </section>
+
+      <section className="main__switches">
+        <Heading order={2} className="mb-2">
+          Selects
+        </Heading>
+        <div className="data-row flex gap-1">
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder='Fruit' />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value='orange'>Orange</SelectItem>
+                <SelectItem value='melon'>Melon</SelectItem>
+                <SelectItem value='pear'>Pear</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
       </section>
 
