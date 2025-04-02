@@ -8,33 +8,48 @@ import Button from '@/components/handmade/button/button'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import { capitalizeFirstLetter } from '@/lib/util'
+import useBurgerMenuStore from '@/stores/sheets/burger-menu-store'
+import BurgerMenuSheet from '../burger-menu/burger-menu-sheet'
 
 const Header = () => {
-  return (
-    <div className="[--header-h-lg:100px] [--header-h-md:80px] [--header-h:60px]">
-      <header className="fixed top-0 left-0 w-full">
-        <ResponsiveContainer className="bg-grayC rounded-b-[10px] h-full">
-          <div
-            className={`header_inner h-[var(--header-h)] md:h-[var(--header-h-md)] lg:h-[var(--header-h-lg)] flex justify-between items-center`}
-          >
-            <div className="flex gap-5 items-center">
-              <Logo />
-              <NavList />
-            </div>
+  const {
+    opened: isOpenedBurgerMenu,
+    setActiveState: setActiveStateBurgerMenu,
+  } = useBurgerMenuStore()
 
-            <BurgerMenuButton className="lg:hidden" />
-            <Button
-              className="hidden lg:inline-flex"
-              semantic={'neutral'}
-              mode={'ghost'}
+  console.log(isOpenedBurgerMenu)
+  
+  return (
+    <>
+      <div className="[--header-h-lg:100px] [--header-h-md:80px] [--header-h:60px]">
+        <header className="fixed top-0 left-0 w-full">
+          <ResponsiveContainer className="bg-grayC rounded-b-[10px] h-full">
+            <div
+              className={`header_inner h-[var(--header-h)] md:h-[var(--header-h-md)] lg:h-[var(--header-h-lg)] flex justify-between items-center`}
             >
-              Book a call to us
-            </Button>
-          </div>
-        </ResponsiveContainer>
-      </header>
-      <div className="h-[var(--header-h)] md:h-[var(--header-h-md)] lg:h-[var(--header-h-lg)] mb-6 md:mb-8 lg:mb-10"></div>
-    </div>
+              <div className="flex gap-5 items-center">
+                <Logo />
+                <NavList />
+              </div>
+
+              <BurgerMenuButton className="lg:hidden" />
+              <Button
+                className="hidden lg:inline-flex"
+                semantic={'neutral'}
+                mode={'ghost'}
+              >
+                Book a call to us
+              </Button>
+            </div>
+          </ResponsiveContainer>
+        </header>
+        <div className="h-[var(--header-h)] md:h-[var(--header-h-md)] lg:h-[var(--header-h-lg)] mb-6 md:mb-8 lg:mb-10"></div>
+      </div>
+      <BurgerMenuSheet
+        opened={isOpenedBurgerMenu}
+        setActiveState={setActiveStateBurgerMenu}
+      />
+    </>
   )
 }
 
@@ -108,8 +123,13 @@ type TBurgerMenuButton = {
 }
 
 const BurgerMenuButton = ({ className }: TBurgerMenuButton) => {
+  const setActiveState = useBurgerMenuStore(state => state.setActiveState)
+
   return (
-    <button className={cn('dark:bg-hm_test/10 rounded-md p-2', className)}>
+    <button
+      className={cn('dark:bg-hm_test/10 rounded-md p-2', className)}
+      onClick={() => setActiveState(true)}
+    >
       <Image
         src="/assets/icons/util/burger-menu.svg"
         height={20}

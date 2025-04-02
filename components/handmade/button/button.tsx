@@ -12,7 +12,7 @@ const buttonVariants = cva(
         accent:
           'dark:bg-hm_accent dark:hover:bg-hm_accentB dark:focus-visible:outline-hm_accent dark:hover:focus-visible:outline-hm_accentB',
         neutral:
-          'dark:bg-gray dark:hover:bg-grayB dark:focus-visible:outline-whiteB dark:hover:focus',
+          'dark:bg-gray dark:disabled:!bg-amber-800 dark:hover:bg-grayB dark:focus-visible:outline-whiteB dark:hover:focus',
       },
       mode: {
         primary: '1',

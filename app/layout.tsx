@@ -7,6 +7,7 @@ import DevNavDialog from '@/components/handmade/utils/dialogs/dev-nav/dev-nav-di
 import UserJsonSessionButton from '@/components/handmade/utils/dialogs/user-json-session/user-json-session-button'
 import UserJsonSessionDialog from '@/components/handmade/utils/dialogs/user-json-session/user-json-session-dialog'
 import Provider from '@/components/provider/provider'
+import { Toaster } from '@/components/ui/sonner'
 
 const quickSand = Quicksand({
   weight: ['300', '400', '500', '600', '700'],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <div className={`dialogs_sematic_box`}>
             <DevNavDialog />
             <UserJsonSessionDialog />
+            <Toaster />
           </div>
         </Provider>
 

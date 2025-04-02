@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from '@/components/handmade/typography/headings'
 import Text from '@/components/handmade/typography/paragraphs'
 import Input from '@/components/handmade/input/input'
@@ -12,12 +12,16 @@ import Button from '../button/button'
 import { cn } from '@/lib/utils'
 import { createNewAccount } from '@/lib/actions/user'
 import { signupFormSchema, TSignupFormSchema } from '@/zod/auth'
+import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   className?: string
 }
 
 const SignupForm = ({ className }: Props) => {
+  const router = useRouter()
+  
   const form = useForm<TSignupFormSchema>({
     resolver: zodResolver(signupFormSchema),
     defaultValues: {
@@ -25,14 +29,31 @@ const SignupForm = ({ className }: Props) => {
       password: '',
     },
   })
+  const [isPending, setIsPending] = useState(false)
 
   async function onSubmit(values: TSignupFormSchema) {
     console.log('values from test form', values)
     form.reset()
 
+    setIsPending(true)
     const response = await createNewAccount(values)
-    console.log('Response of submit', response)
+    if (response.success) {
+      // toast('hello there', {
+      //   description: 'Sunday, December 03, 2023 at 9:00 AM',
+      //   action: {
+      //     label: 'Undo',
+      //     onClick: () => console.log('Undo'),
+      //   },
+      // })
+      toast('System registered new account. Now you will be redirected to login page')
 
+      setTimeout(() => {
+        router.push('/login')
+      }, 3500)
+    } else {
+      toast('System did not register your account')
+    }
+    setIsPending(false)
   }
 
   return (
@@ -62,7 +83,7 @@ const SignupForm = ({ className }: Props) => {
                   Username
                 </Heading>
                 <FormControl>
-                  <Input {...field} placeholder="Your username..." />
+                  <Input {...field} disabled={isPending} placeholder="Your username..." />
                 </FormControl>
               </FormItem>
             )}
@@ -80,12 +101,12 @@ const SignupForm = ({ className }: Props) => {
                   Password
                 </Heading>
                 <FormControl>
-                  <Input {...field} placeholder="Your secure password..." />
+                  <Input {...field} disabled={isPending} placeholder="Your secure password..." />
                 </FormControl>
               </FormItem>
             )}
           />
-          <Button semantic="neutral" type="submit">
+          <Button disabled={isPending} semantic="neutral" type="submit">
             Submit
           </Button>
         </div>
